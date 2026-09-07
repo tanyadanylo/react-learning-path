@@ -1,8 +1,9 @@
-import ProductsComponent from "./hw2/ProductsComponent.tsx";
+import UsersPage from "./hw3/UsersPage.tsx";
+
 function App() {
     return (
         <>
-            <ProductsComponent/>
+            <UsersPage/>
         </>
     )
 }

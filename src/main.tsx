@@ -1,7 +1,20 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
+import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import UsersPage from "./hw3/UsersPage.tsx";
+import CartsPage from "./hw3/CartsPage.tsx";
+
+const router = createBrowserRouter([
+    {
+        path:'/',
+        element:<UsersPage/>
+    },
+    {
+        path:'/cart/:id',
+        element:<CartsPage/>
+    }
+])
 
 createRoot(document.getElementById('root')!).render(
-    <App/>
+    <RouterProvider router={router}/>
 )
