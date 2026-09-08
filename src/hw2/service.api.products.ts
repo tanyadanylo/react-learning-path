@@ -4,7 +4,7 @@ export async function loadProducts() {
     try{
         const response = await fetch(BASE_URL);
         if (!response.ok) {
-            throw new Error("Products not found");
+            throw new Error("ProductCard not found");
         }
         const data = await response.json();
         return data.products;

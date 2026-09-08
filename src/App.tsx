@@ -1,9 +1,9 @@
-import UsersPage from "./hw3/UsersPage.tsx";
+import UserPage from "./hw3/UserPage.tsx";
 
 function App() {
     return (
         <>
-            <UsersPage/>
+            <UserPage/>
         </>
     )
 }
