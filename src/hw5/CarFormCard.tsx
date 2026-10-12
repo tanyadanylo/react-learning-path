@@ -1,15 +1,14 @@
 import {useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
-import {addCarsSchema} from "./CarSchema";
+import {addCarsSchema} from "./CarSchema.ts";
 import {type ICar, postCar} from "./car.service";
 
 
 function CarsFormComponent() {
-    const {handleSubmit, register, formState: {errors}} = useForm<ICar>({resolver: joiResolver(addCarsSchema)});
+    const {handleSubmit, register, formState: {errors, isValid}} = useForm<ICar>({resolver: joiResolver(addCarsSchema), mode: 'all'});
 
     const onSubmit = (data: ICar) => {
         postCar(data)
-        console.log(data)
     }
 
     return (
@@ -32,7 +31,7 @@ function CarsFormComponent() {
                 type="number"  {...register('price', {valueAsNumber: true})}/>
             {errors.price && <div style={{color: 'red'}}>{errors.price.message}</div>}
 
-            <button
+            <button disabled={!isValid}
                 className="px-6 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 hover:shadow-md active:scale-95 transition-all duration-200 w-full max-w-xs">Submit
             </button>
         </form>
